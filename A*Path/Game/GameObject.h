@@ -29,6 +29,7 @@ public:
     GameObject();
     void initBox2D();
     virtual int type();
+    virtual void release();
     
 };
 

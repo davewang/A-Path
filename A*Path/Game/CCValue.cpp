@@ -14,6 +14,7 @@ CCValue* CCValue::valueWithCCPoint(CCPoint p)
     value->autorelease();
     return value;
 }
+
 CCPoint CCValue::ccpointFromCCValue(CCValue *p)
 {
     return p->p;

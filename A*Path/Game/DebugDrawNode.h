@@ -13,12 +13,12 @@
 #include "GLES-Render.h"
 #include <stdlib.h>
 
-class DebugDrawNode :public CCLayer{
+class DebugDrawNode : public CCLayer{
 public:
     b2World* world;
-     static DebugDrawNode* createWithWorld(b2World* worldPtr);
+    static DebugDrawNode* createWithWorld(b2World* worldPtr);
     virtual DebugDrawNode* initWithWorld(b2World* worldPtr);
-     void draw();
+    void draw();
 };
 
  

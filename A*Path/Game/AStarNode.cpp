@@ -8,13 +8,19 @@
 
 #include "AStarNode.h"
 
-AStarNode::AStarNode(){
-    CCObject::CCObject();
+AStarNode::AStarNode():CCObject() {
+
     active = true;
     neighbors = new CCArray(4);
     costMultiplier = 1.0f;
 }
 
+void  AStarNode::release(){
+    neighbors->removeAllObjects();
+    neighbors->release();
+    CCObject::release();
+
+}
 /* Cost to node heuristic */
 float AStarNode::costToNode(AStarNode* node)
 {

@@ -9,8 +9,7 @@
 #ifndef __Box2dWater__DrawingSprites__
 #define __Box2dWater__DrawingSprites__
 
-//#include <iostream>
-//#include "cocos2d.h"
+
 #include "Base.h"
 #include "Waypoints.h"
 #include "ProjectileAiming.h"
@@ -31,9 +30,6 @@ public:
     // a selector callback
     virtual void menuCloseCallback(CCObject* pSender);
     virtual void addMessage();
-    // implement the "static node()" method manually
-    //LAYER_NODE_FUNC(DrawingSprites);
-//private:
-  //  virtual cocos2d::CCLayer* runRecipe();
+
 };
 #endif /* defined(__Box2dWater__DrawingSprites__) */

@@ -15,8 +15,8 @@ public:
 	b2BodyDef* bodyDef;
 	b2FixtureDef* fixtureDef;
 	GameObject* gameObject;
-    //Box2DBodyInfo();
     static Box2DBodyInfo* create();
+    virtual void release();
 };
 
 #endif /* defined(__Box2dWater__Box2DBodyInfo__) */

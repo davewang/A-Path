@@ -24,7 +24,7 @@ public:
     static CCArray* findPathFromTo(AStarNode* fromNode,AStarNode* toNode);
     static AStarPathNode* lowestCostNodeInArray(CCArray *a);
     static bool isPathNodeinList(AStarPathNode* a,CCArray* list);
-    
+    virtual void release();
 
 };
 

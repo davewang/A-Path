@@ -15,9 +15,7 @@ DPad::DPad()
     direction = NO_DIRECTION;
     
     CCSpriteFrameCache *cache = CCSpriteFrameCache::sharedSpriteFrameCache();
-   // cache->addSpriteFramesWithFile("dpad_buttons.plist");
-      
-    
+
     //Set the sprite display frame
     this->setDisplayFrame( cache->spriteFrameByName("d_pad_normal.png"));
 }

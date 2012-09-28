@@ -9,9 +9,9 @@
 #include "GameObject.h"
 #include "GameArea2D.h"
 
-GameObject::GameObject()
+GameObject::GameObject():CCNode()
 {
-    CCNode::CCNode();
+    //CCNode::CCNode();
     this->initBox2D();
     markedForDestruction = false;
 }
@@ -26,6 +26,16 @@ void GameObject::initBox2D()
 	fixtureDef->restitution = 0.3f;
     
 	bodyDef->userData = this;
+}
+void GameObject::release()
+{
+
+    delete bodyDef;
+    delete fixtureDef;
+    delete polygonShape;
+    delete circleShape;
+    sprite->release();
+    gameArea->release();
 }
 int GameObject::type()
 {

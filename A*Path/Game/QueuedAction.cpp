@@ -9,10 +9,17 @@
 #include "QueuedAction.h"
 QueuedAction * QueuedAction::create()
 {
-   
-    return new QueuedAction();
+    QueuedAction *action = new QueuedAction();
+    action->autorelease();
+    return action;
 }
 QueuedAction::QueuedAction()
 {
     CCLOG("QueuedAction init .");
+}
+void QueuedAction::release()
+{
+    gameObject->release();
+    action->release();
+    CCObject::release();
 }

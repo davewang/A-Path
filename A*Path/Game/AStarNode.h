@@ -21,6 +21,7 @@ public:
 	float costMultiplier;	//Use this to multiply the normal cost to reach this node.
     virtual float costToNode(AStarNode* node);
     static bool isNodeInList(AStarNode* a,CCArray* list);
+    virtual void release();
  
   
 };

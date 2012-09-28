@@ -7,9 +7,10 @@
 //
 
 #include "AStarPathNode.h"
+#include "Prefix.pch"
 
-AStarPathNode::AStarPathNode() {
-        CCObject::CCObject();
+AStarPathNode::AStarPathNode():CCObject() {
+
     	cost = 0.0f;
 }
 
@@ -22,11 +23,21 @@ AStarPathNode* AStarPathNode::createWithAStarNode(AStarNode* node) {
     pathNode->autorelease();
 	return pathNode;
 }
+void AStarPathNode::release()
+{
+    if (node!= NULL)
+        node->release();
+    if (previous!= NULL)
+        previous->release();
+
+    CCObject::release();
+
+}
 
 /* Our implementation of the A* search algorithm */
 CCArray*  AStarPathNode::findPathFromTo(AStarNode *fromNode, AStarNode *toNode) {
-	CCArray *foundPath = CCArray::createWithCapacity(2);
-    foundPath->retain();
+	CCArray *foundPath = new CCArray(3);
+    foundPath->init();
      
 	if(fromNode->position.x == toNode->position.x && fromNode->position.y == toNode->position.y){
 		return NULL;
@@ -50,18 +61,26 @@ CCArray*  AStarPathNode::findPathFromTo(AStarNode *fromNode, AStarNode *toNode) 
 			
 			//Path Found!
 			aNode = currentNode;
-			while(aNode!=NULL&&aNode->previous != NULL){
+
+            while(aNode!=NULL&& NULL != aNode->previous){
 				//Mark path
                 foundPath->addObject(CCValue::valueWithCCPoint(ccp(aNode->node->position.x, aNode->node->position.y)));
 				aNode = aNode->previous;
 			}
+
+
             foundPath->addObject(CCValue::valueWithCCPoint(ccp(aNode->node->position.x, aNode->node->position.y)));
+            openList->removeAllObjects();
+            closedList->removeAllObjects();
 			return foundPath;
 		}else{
 			//Still searching
+            CCLog(" add before closedList->count() = %d", closedList->count());
             closedList->addObject(currentNode);
+            CCLog(" add after closedList->count() = %d", closedList->count());
+            CCLog(" remove before openList->count() = %d", openList->count());
             openList->removeObject(currentNode);
-			 
+            CCLog(" remove after openList->count() = %d", openList->count());
 			
 			for(int i=0; i<currentNode->node->neighbors->count(); i++){
 				AStarPathNode *aNode = AStarPathNode::createWithAStarNode((AStarNode*)currentNode->node->neighbors->objectAtIndex(i));
@@ -75,7 +94,8 @@ CCArray*  AStarPathNode::findPathFromTo(AStarNode *fromNode, AStarNode *toNode) 
             
 		}
 	}
-	
+    openList->removeAllObjects();
+    closedList->removeAllObjects();
 	//No Path Found
 	return NULL;
 }

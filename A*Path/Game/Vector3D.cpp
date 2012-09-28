@@ -20,6 +20,7 @@ Vector3D* Vector3D::xyz(float x, float y, float z)
     v->x = x;
     v->y = y;
     v->z = z;
+    v->autorelease();
     return v;
 }
 bool Vector3D::operator ==(const Vector3D &p) const

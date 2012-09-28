@@ -10,9 +10,9 @@
 #include "GameWaypoint.h"
 #include "GameHelper.h"
 #include "GameArea2D.h"
-GameActor::GameActor()
+GameActor::GameActor():GameObject()
 {
-        GameObject::GameObject();
+        //GameObject::GameObject();
         waypoints = new CCArray(2);
 		runSpeed = 10.0f;
 		timesBlocked = 0;
@@ -156,7 +156,12 @@ CCPoint GameActor::getNormalVectorFromDirection(int dir)
 	}
 	return v;
 }
+void GameActor::release()
+{
+    waypoints->removeAllObjects();
+    waypoints->release();
 
+}
 void GameActor::animateActor()
 {
 	CCSpriteFrameCache *cache = CCSpriteFrameCache::sharedSpriteFrameCache();// [CCSpriteFrameCache sharedSpriteFrameCache];

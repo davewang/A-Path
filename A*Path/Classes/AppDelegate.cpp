@@ -9,7 +9,6 @@
 #include "AppDelegate.h"
 
 #include "cocos2d.h"
-#include "HelloWorldScene.h"
 #include "DrawingSprites.h"
 USING_NS_CC;
 

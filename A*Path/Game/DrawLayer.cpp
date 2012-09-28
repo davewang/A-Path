@@ -12,3 +12,8 @@ void DrawLayer::draw()
 {
 	recipe->drawLayer();
 }
+
+void DrawLayer::release()
+{
+    recipe->release();
+}

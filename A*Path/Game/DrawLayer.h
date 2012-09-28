@@ -16,6 +16,7 @@ class DrawLayer : public CCLayer
 public:
 	Recipe *recipe;
     virtual void draw();
+    virtual void release();
 };
 
  

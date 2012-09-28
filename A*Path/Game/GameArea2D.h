@@ -38,7 +38,6 @@ class  GameArea2D : public Recipe
     
 public:
 	b2World* world;
-   // GLESDebugDraw *m_debugDraw;
 	GLESDebugDraw *m_debugDraw;
 	
 	CCNode *gameNode;

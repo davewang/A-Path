@@ -34,5 +34,6 @@ public:
     static CCPoint  getNormalVectorFromDirection(int dir);
     void animateActor();
     void timeShiftVectMagnitude(float seconds,CCPoint vect,float magnitude);
+    virtual void release();
 };
 #endif /* defined(__Box2dWater__GameActor__) */

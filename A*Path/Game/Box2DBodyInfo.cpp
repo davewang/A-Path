@@ -13,6 +13,14 @@
 //}
 Box2DBodyInfo* Box2DBodyInfo::create()
 {
-    
-  return  new Box2DBodyInfo();
+  Box2DBodyInfo *info =  new Box2DBodyInfo();
+  info->autorelease();
+  return info ;
+}
+void Box2DBodyInfo::release()
+{
+    delete fixtureDef;
+    delete bodyDef;
+    gameObject->release();
+
 }

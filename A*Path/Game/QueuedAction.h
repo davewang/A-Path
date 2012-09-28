@@ -22,6 +22,7 @@ public:
     GameObject* gameObject;
 	CCAction* action;
     static QueuedAction* create();
+    virtual void release();
     
 }; 
 
