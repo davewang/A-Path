@@ -8,6 +8,10 @@
 
 #include "Recipe.h" 
 
+Recipe::Recipe():CCLayer()
+{
+    CCLog("Recipe init");
+}
 CCLayer* Recipe::runRecipe()
 {
     setTouchEnabled(true);

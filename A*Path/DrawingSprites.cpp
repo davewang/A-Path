@@ -17,7 +17,7 @@ CCScene* DrawingSprites::scene()
     CCScene *scene = CCScene::create();
     
     // 'layer' is an autorelease object
-    DrawingSprites *layer = new DrawingSprites(); //(DrawingSprites*)DrawingSprites::node();//DrawingSprites::node();
+    DrawingSprites *layer = new DrawingSprites(); 
     layer->init();
     // add layer as a child to scene
     scene->addChild(layer);

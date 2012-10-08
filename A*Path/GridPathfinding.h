@@ -28,9 +28,9 @@ public:
 	CCPoint startCoord;
 	CCPoint endCoord;
 	bool addMode;
-    
-    
-    
+
+
+    GridPathfinding();
     virtual CCLayer* runRecipe();
     virtual void step(float delta);
     virtual void addDrawLayer();

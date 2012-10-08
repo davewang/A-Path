@@ -19,7 +19,9 @@ public:
     CCLabelBMFont *message;
     
 public:
-   
+
+
+    Recipe();
     virtual CCLayer* runRecipe();
     virtual void cleanRecipe();
     virtual void resetMessage();

@@ -12,6 +12,9 @@
 AStarPathNode::AStarPathNode():CCObject() {
 
     	cost = 0.0f;
+    previous = NULL;
+        node = NULL;
+
 }
 
 AStarPathNode* AStarPathNode::createWithAStarNode(AStarNode* node) {
@@ -25,12 +28,13 @@ AStarPathNode* AStarPathNode::createWithAStarNode(AStarNode* node) {
 }
 void AStarPathNode::release()
 {
+    CCObject::release();
     if (node!= NULL)
         node->release();
     if (previous!= NULL)
         previous->release();
 
-    CCObject::release();
+
 
 }
 
@@ -62,7 +66,7 @@ CCArray*  AStarPathNode::findPathFromTo(AStarNode *fromNode, AStarNode *toNode) 
 			//Path Found!
 			aNode = currentNode;
 
-            while(aNode!=NULL&& NULL != aNode->previous){
+            while(aNode!=NULL&& aNode->previous != NULL ){
 				//Mark path
                 foundPath->addObject(CCValue::valueWithCCPoint(ccp(aNode->node->position.x, aNode->node->position.y)));
 				aNode = aNode->previous;
@@ -93,6 +97,7 @@ CCArray*  AStarPathNode::findPathFromTo(AStarNode *fromNode, AStarNode *toNode) 
             
             
 		}
+
 	}
     openList->removeAllObjects();
     closedList->removeAllObjects();

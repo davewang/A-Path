@@ -2219,7 +2219,7 @@
 					"\"$(PROJECT_NAME)/libs/CocosDenshion/include\"",
 					"\"$(SDKROOT)/usr/include/libxml2\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2243,7 +2243,7 @@
 					"\"$(PROJECT_NAME)/libs/CocosDenshion/include\"",
 					"\"$(SDKROOT)/usr/include/libxml2\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -2259,7 +2259,7 @@
 				GCC_PREFIX_HEADER = "A*Path/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "A*Path/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
@@ -2279,7 +2279,7 @@
 				GCC_PREFIX_HEADER = "A*Path/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = "A*Path/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",

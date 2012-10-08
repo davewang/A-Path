@@ -8,6 +8,11 @@
 
 #include "GridPathfinding.h"
 
+GridPathfinding::GridPathfinding():Recipe()
+{
+    CCLog("GridPathfinding init");
+}
+
 CCLayer* GridPathfinding::runRecipe() {
 	//Superclass initialization and message
     Recipe::runRecipe();
@@ -72,23 +77,18 @@ CCLayer* GridPathfinding::runRecipe() {
     this->addGridArt();
      
 	/* Menu items */
-    CCMenuItemFont *findPathItem = CCMenuItemFont::create("搜索路径", this,menu_selector( GridPathfinding::findPath));
+    CCMenuItemFont *findPathItem = CCMenuItemFont::create("find path", this,menu_selector( GridPathfinding::findPath));
+    findPathItem->setScale(0.65f);
     
     
-	//CCMenuItem *findPathItem = CCMenuItemFont::create("Find Path",this,menu_selector(GridPathfinding::foundPath));
-    //[CCMenuItemFont itemFromString:@"Find Path" target:self selector:@selector(findPath:)];
-	findPathItem->setScale(0.65f);
-    CCMenuItemToggle *switchModeItem = CCMenuItemToggle::createWithTarget(this, menu_selector(GridPathfinding::switchMode),CCMenuItemFont::create("去除墙"),CCMenuItemFont::create("添加墙") );
-    
-    
-	//CCMenuItemToggle *switchModeItem =CCMenuItemToggle::create(this,menu_selector(GridPathfinding::switchMode) ,CCMenuItemFont::create("Switch Mode: Remove Wall"),CCMenuItemFont::create("Switch Mode: Add Wall"),NULL);
-	switchModeItem->setScale(0.65f);
-   
-	CCMenu *menu =  CCMenu::create(findPathItem,switchModeItem);//[CCMenu menuWithItems:findPathItem, switchModeItem, nil];
-	//[menu alignItemsVertically];
-    menu->alignItemsVertically();
-	menu->setPosition(ccp(350,290));
-    this->addChild(menu,5);
+    CCMenuItemToggle *switchModeItem = CCMenuItemToggle::createWithTarget(this, menu_selector(GridPathfinding::switchMode),CCMenuItemFont::create("clean wall"),CCMenuItemFont::create("add wall"),NULL);
+
+     switchModeItem->setScale(0.65f);
+
+	 CCMenu *menu =  CCMenu::create(findPathItem,switchModeItem,NULL);
+     menu->alignItemsVertically();
+  	 menu->setPosition(ccp(350,290));
+     this->addChild(menu,5);
     
 	//Add draw layer
 	this->addDrawLayer();
