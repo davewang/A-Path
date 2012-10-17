@@ -17,7 +17,8 @@ CCLayer* Recipe::runRecipe()
     setTouchEnabled(true);
     
 	CCSize screenSize =CCDirector::sharedDirector()->getWinSize();
-    this->message = CCLabelBMFont::create("", "eurostile_30.fnt");//labelWithString("", "eurostile_30.fnt");
+      
+    this->message = CCLabelTTF::create("","fonts/huakangfont.ttf", 24); // CCLabelBMFont::create("", "avqest.fnt");    //eurostile_30.fnt
     message->setPosition(ccp(10, screenSize.height-35));
     message->setAnchorPoint(ccp(0,1));
     message->setScale(0.5f);

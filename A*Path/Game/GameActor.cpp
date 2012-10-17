@@ -169,10 +169,9 @@ void GameActor::animateActor()
 	//Animation delay is inverse speed
 	float delay = 0.5f/sqrt(pow(this->lastVelocity.x,2)+pow(this->lastVelocity.y,2));
 	if(delay > 0.5f){ delay = 0.5f; }
-   
+    
 	CCAnimation *animation =CCAnimation::create();
     animation->setDelayPerUnit(delay);
-    
    // [[CCAnimation alloc] initWithName:@"gunman_anim" delay:delay];
     
     string dir;

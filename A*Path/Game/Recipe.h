@@ -16,8 +16,8 @@ enum {
 class Recipe: public CCLayer{
     
 public:
-    CCLabelBMFont *message;
-    
+    //CCLabelBMFont *message;
+    CCLabelTTF *message;
 public:
 
 

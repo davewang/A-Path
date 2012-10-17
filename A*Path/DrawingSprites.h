@@ -15,12 +15,16 @@
 #include "ProjectileAiming.h"
 #include "AIFlocking.h"
 #include "GridPathfinding.h"
+#include "Box2DPathfinding.h"
+#include "TileMapPathfinding.h"
 class DrawingSprites : public CCLayer
 {
 public:
     //Waypoints *recipe;
-   // AIFlocking *recipe;
-     GridPathfinding *recipe;
+    //AIFlocking *recipe;
+   //  GridPathfinding *recipe;
+    //Box2DPathfinding *recipe;
+    TileMapPathfinding *recipe; 
 public:
     virtual bool init();
     virtual void onEnter();  

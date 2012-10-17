@@ -44,5 +44,9 @@
 		<key>opengles-1</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+	</array>
 </dict>
 </plist>

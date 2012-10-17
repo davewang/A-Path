@@ -75,9 +75,11 @@ CCLayer* GridPathfinding::runRecipe() {
     
 	//Add visual represenation of nodes
     this->addGridArt();
-     
+    CCLabelTTF *findLabel= CCLabelTTF::create("胜利", "huakangfont.ttf", 11);
+    
 	/* Menu items */
     CCMenuItemFont *findPathItem = CCMenuItemFont::create("find path", this,menu_selector( GridPathfinding::findPath));
+    //CCMenuItemFont *findPathItem = CCMenuItemFont::create(findLabel, this,menu_selector( GridPathfinding::findPath));
     findPathItem->setScale(0.65f);
     
     

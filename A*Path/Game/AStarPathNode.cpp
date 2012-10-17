@@ -79,12 +79,12 @@ CCArray*  AStarPathNode::findPathFromTo(AStarNode *fromNode, AStarNode *toNode) 
 			return foundPath;
 		}else{
 			//Still searching
-            CCLog(" add before closedList->count() = %d", closedList->count());
+            //CCLog(" add before closedList->count() = %d", closedList->count());
             closedList->addObject(currentNode);
-            CCLog(" add after closedList->count() = %d", closedList->count());
-            CCLog(" remove before openList->count() = %d", openList->count());
+            //CCLog(" add after closedList->count() = %d", closedList->count());
+            //CCLog(" remove before openList->count() = %d", openList->count());
             openList->removeObject(currentNode);
-            CCLog(" remove after openList->count() = %d", openList->count());
+            //CCLog(" remove after openList->count() = %d", openList->count());
 			
 			for(int i=0; i<currentNode->node->neighbors->count(); i++){
 				AStarPathNode *aNode = AStarPathNode::createWithAStarNode((AStarNode*)currentNode->node->neighbors->objectAtIndex(i));

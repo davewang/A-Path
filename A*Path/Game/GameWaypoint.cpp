@@ -27,14 +27,20 @@ GameWaypoint::GameWaypoint(CCPoint p,float s)
 void GameWaypoint::processPreCallback()
 {
     // preCallback->obj
-   CCCallFunc *func = CCCallFunc::create(preCallback->obj, preCallback->callbackfun);
-    func->execute();
+    if (preCallback) {
+        CCCallFunc *func = CCCallFunc::create(preCallback->obj, preCallback->callbackfun);
+        func->execute();
+    }
+  
    
 }
 
 void GameWaypoint::processPostCallback()
 {
-    CCCallFunc *func =  CCCallFunc::create(postCallback->obj, postCallback->callbackfun);
-     func->execute(); 
+    if (postCallback) {
+        CCCallFunc *func =  CCCallFunc::create(postCallback->obj, postCallback->callbackfun);
+        func->execute();
+    }
+    
  
 }

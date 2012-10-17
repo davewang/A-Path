@@ -11,7 +11,7 @@ int GameMisc::type()
 {
 	return GO_TYPE_MISC;
 }
-GameMisc::GameMisc()
+GameMisc::GameMisc():GameObject()
 {
-    GameObject::GameObject();
+   // GameObject::GameObject();
 }

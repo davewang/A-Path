@@ -46,7 +46,7 @@ void GameArea2D::step(float dt)
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
 	{
 		if (b->GetUserData() != NULL) {
-			//GameObject *obj = (GameObject*)b->GetUserData();
+			 GameObject *obj = (GameObject*)b->GetUserData();
            // CCLog("GameObject type = %d",obj->type());
 //            if (obj->sprite!= NULL) {
 //               obj->sprite->setPosition(CCPointMake(b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO) ); 
@@ -54,6 +54,10 @@ void GameArea2D::step(float dt)
             
 			//[obj.sprite setPosition:CGPointMake( b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO)];
 			//obj.sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+            if (obj->sprite!= NULL) {
+                obj->sprite->setPosition(ccp( b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO) );
+                 
+            }
 		}
 	}
 	

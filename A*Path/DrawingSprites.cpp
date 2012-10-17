@@ -69,12 +69,12 @@ bool DrawingSprites::init()
     CCSprite* pSprite = CCSprite::create("HelloWorld.png");
      pSprite->setPosition( ccp(size.width/2, size.height/2) );
  
-   // recipe = new Waypoints();
+    //recipe = new Waypoints();
     //recipe = new AIFlocking();
-    recipe = new GridPathfinding();
-   
+    //recipe = new GridPathfinding();
+    //recipe = new Box2DPathfinding();
+    recipe = new TileMapPathfinding();
     this->addChild(recipe->runRecipe());
-    
     
     return true;
 }

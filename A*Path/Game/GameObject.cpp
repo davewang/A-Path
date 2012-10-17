@@ -14,6 +14,14 @@ GameObject::GameObject():CCNode()
     //CCNode::CCNode();
     this->initBox2D();
     markedForDestruction = false;
+    sprite = NULL;
+    gameArea = NULL;
+//    body = NULL;
+//    bodyDef = NULL;
+//    fixtureDef = NULL;
+//    polygonShape = NULL;
+//    circleShape = NULL;
+    
 }
 void GameObject::initBox2D()
 {
