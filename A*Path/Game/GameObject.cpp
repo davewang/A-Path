@@ -16,11 +16,7 @@ GameObject::GameObject():CCNode()
     markedForDestruction = false;
     sprite = NULL;
     gameArea = NULL;
-//    body = NULL;
-//    bodyDef = NULL;
-//    fixtureDef = NULL;
-//    polygonShape = NULL;
-//    circleShape = NULL;
+    
     
 }
 void GameObject::initBox2D()
@@ -34,16 +30,21 @@ void GameObject::initBox2D()
 	fixtureDef->restitution = 0.3f;
     
 	bodyDef->userData = this;
+    
+    body = NULL;
+    polygonShape = NULL;
+    circleShape = NULL;
 }
 void GameObject::release()
 {
-
+    
     delete bodyDef;
     delete fixtureDef;
     delete polygonShape;
     delete circleShape;
     sprite->release();
     gameArea->release();
+    CCObject::release();
 }
 int GameObject::type()
 {

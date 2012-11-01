@@ -14,6 +14,7 @@ public:
     float life;
     GameMisc();
     virtual int type();
+    virtual void release();
 };
 
 #endif /* defined(__Box2dWater__GameMisc__) */

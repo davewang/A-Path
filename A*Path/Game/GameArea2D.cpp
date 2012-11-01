@@ -394,8 +394,8 @@ void GameArea2D::addBoxAtPointAndSize(CCPoint p,CCPoint s)
     
 	GameMisc *obj = new GameMisc();
 	obj->gameArea = this;
-	obj->setTag( GO_TAG_WALL)  ;
-    
+	obj->setTag(GO_TAG_WALL)  ;
+   
 	obj->bodyDef->type = b2_staticBody;
 	obj->bodyDef->position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
 	obj->bodyDef->userData = obj;

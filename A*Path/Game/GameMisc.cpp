@@ -15,3 +15,7 @@ GameMisc::GameMisc():GameObject()
 {
    // GameObject::GameObject();
 }
+void GameMisc::release()
+{
+    GameObject::release();
+}

@@ -130,7 +130,7 @@ CCLayer*  TileMapPathfinding::runRecipe()
 	}
     
 	//Initial variables
-	dPad->setVisible(false);
+	dPad->setVisible(true);
 	cameraZoom = 0.75f;
 	actor->runSpeed = 5.0f;
     
@@ -143,13 +143,12 @@ CCLayer*  TileMapPathfinding::runRecipe()
 void TileMapPathfinding::step(float dt)
 {
 	//DPad disabled
-	dPad->pressed = false;
+	dPad->pressed = true;
     
     Tiled::step(dt);
 	
 	//Process actor waypoints
     actor->processWaypoints();
-	//[actor processWaypoints];
 	
 	//Orient the actor properly
 	if(actor->waypoints->count() > 0){
@@ -157,6 +156,11 @@ void TileMapPathfinding::step(float dt)
        
 		actor->body->SetTransform(actor->body->GetPosition(), -1 *  GameHelper::vectorToRadians(movementVector) + PI_CONSTANT/2);
 	}
+    
+    //Follow the actor with the camera
+	CCPoint actorPosition = ccp(actor->body->GetPosition().x*PTM_RATIO, actor->body->GetPosition().y*PTM_RATIO);
+    this->centerCameraOnGameCoord(actorPosition);
+	
 }
 
 /* Disable camera following */
@@ -290,8 +294,7 @@ void TileMapPathfinding::tapWithPoint(CCPoint point) {
             
            
 			CCPoint pathPoint = CCValue::ccpointFromCCValue( ((CCValue*)foundPath->objectAtIndex(i)) );
-            actor->addWaypoint(GameWaypoint::createWithPositionWithSpeedMod(pathPoint, 1.0f));
-			//[actor addWaypoint:[GameWaypoint createWithPosition:pathPoint withSpeedMod:1.0f]];
+            actor->addWaypoint(GameWaypoint::createWithPositionWithSpeedMod(pathPoint, 1.0f)); 
 		}
 	}
     if (foundPath!=NULL ) {
@@ -299,20 +302,32 @@ void TileMapPathfinding::tapWithPoint(CCPoint point) {
         foundPath=NULL;
     }
 	
-	//[foundPath release]; foundPath = nil;
+    
 }
 
 /* DPad disabled */
 bool TileMapPathfinding::hudBegan(cocos2d::CCSet *touches, cocos2d::CCEvent *event)
 {
-    return false;
+    bool hudTouched = false;
+    dPad->ccTouchesBegan(touches, event);
+    if(dPad->pressed || touches->count() == 1){ hudTouched = true; }
+	return hudTouched;
+    //return false;
 }
 bool TileMapPathfinding::hudMoved(cocos2d::CCSet *touches, cocos2d::CCEvent *event)
 {
-    return false;
+    bool hudTouched = false;
+    dPad->ccTouchesMoved(touches, event);
+	if(dPad->pressed || touches->count() == 1){ hudTouched = true; }
+	return hudTouched;
+    //return false;
 }
 bool TileMapPathfinding::hudEnded(cocos2d::CCSet *touches, cocos2d::CCEvent *event)
 {
-    return false;
+    bool hudTouched = false;
+    dPad->ccTouchesEnded(touches, event);
+	if(dPad->pressed || touches->count() == 1){ hudTouched = true; }
+	return hudTouched;
+    //return false;
 }
   

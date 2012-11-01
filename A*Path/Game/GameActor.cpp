@@ -160,6 +160,7 @@ void GameActor::release()
 {
     waypoints->removeAllObjects();
     waypoints->release();
+     
 
 }
 void GameActor::animateActor()
